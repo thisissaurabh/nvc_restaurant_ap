@@ -1,5 +1,7 @@
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:nvc_restaurant_app/view/widgets/customized_image_asset_widget.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -7,6 +9,7 @@ import '../../../utils/dimensions.dart';
 import '../../../utils/images.dart';
 import '../../../utils/styles.dart';
 import 'widget/product_view.dart';
+import 'widget/review_view.dart';
 
 class RestaurantScreen extends StatefulWidget {
   const RestaurantScreen({Key? key}) : super(key: key);
@@ -18,6 +21,8 @@ class RestaurantScreen extends StatefulWidget {
 class _RestaurantScreenState extends State<RestaurantScreen> with TickerProviderStateMixin {
   final ScrollController _scrollController = ScrollController();
   TabController? _tabController;
+
+
 
   @override
   void initState() {
@@ -74,8 +79,8 @@ class _RestaurantScreenState extends State<RestaurantScreen> with TickerProvider
                     ClipRRect(
                       borderRadius: BorderRadius.circular(Dimensions.radiusSmall),
                       child: const CustomImageAssetWidget(
-                        height: 40,
-                        width: 40,
+                        height: 70,
+                        width: 70,
                         radius: 5,
                         fit: BoxFit.cover,
                         image: 'assets/images/storedemo.png',),
@@ -83,11 +88,11 @@ class _RestaurantScreenState extends State<RestaurantScreen> with TickerProvider
                     const SizedBox(width: Dimensions.paddingSizeSmall),
                     Expanded(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                       Text(
-                        "restaurant.name!", style: poppinsMedium.copyWith(fontSize: Dimensions.fontSizeLarge),
+                        "Karim Hotels", style: poppinsMedium.copyWith(fontSize: Dimensions.fontSizeDefault),
                         maxLines: 1, overflow: TextOverflow.ellipsis,
                       ),
                       Text(
-                        "restaurant.address", maxLines: 1, overflow: TextOverflow.ellipsis,
+                        "Address to be entered here", maxLines: 1, overflow: TextOverflow.ellipsis,
                         style: poppinsRegular.copyWith(fontSize: Dimensions.fontSizeSmall, color: Theme.of(context).disabledColor),
                       ),
                       RatingBar.builder(
@@ -112,6 +117,7 @@ class _RestaurantScreenState extends State<RestaurantScreen> with TickerProvider
                 ]),
               ))),
 
+
               SliverPersistentHeader(
                 pinned: true,
                 delegate: SliverDelegate(child: Center(child: Container(
@@ -125,29 +131,21 @@ class _RestaurantScreenState extends State<RestaurantScreen> with TickerProvider
                     unselectedLabelColor: Theme.of(context).disabledColor,
                     unselectedLabelStyle: poppinsRegular.copyWith(color: Theme.of(context).disabledColor, fontSize: Dimensions.fontSizeSmall),
                     labelStyle: poppinsRegular.copyWith(fontSize: Dimensions.fontSizeSmall, color: Theme.of(context).primaryColor),
-                    tabs:  [
-                      Tab(text: 'all_foods'.tr),
-                      Tab(text: 'reviews'.tr),
+                    tabs:  const [
+                      Tab(text: 'All Foods',),
+                      Tab(text: 'Review'),
                     ]
                   ),
-                ))),
+                ),),),
               ),
 
               SliverToBoxAdapter(child: AnimatedBuilder(
                 animation: _tabController!.animation!,
                 builder: (context, child) {
                   if (_tabController!.index == 0) {
-                    return ProductView();
+                    return const ProductView();
                   } else {
-                    return ListView.builder(
-                      itemCount: 20,
-                      physics: const NeverScrollableScrollPhysics(),
-                      shrinkWrap: true,
-                      padding: const EdgeInsets.all(Dimensions.paddingSizeSmall),
-                      itemBuilder: (context, index) {
-                        return ProductView();
-                      },
-                    );
+                    return  ReviewWidget(hasDivider: true,);
                   }
                 },
               )),

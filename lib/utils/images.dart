@@ -4,4 +4,6 @@ class Images{
   static const String wallet = 'assets/images/icwallet.png';
   static const String orderDetails = 'assets/images/icOrderDetails.png';
   static const String edit = 'assets/icons/edit.png';
+  static const String pencil = 'assets/icons/pencil.png';
+  static const String trash = 'assets/icons/trash.png';
 }

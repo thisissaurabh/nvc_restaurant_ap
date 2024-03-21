@@ -18,6 +18,14 @@ class AuthController extends GetxController implements GetxService {
   List<int>? _zoneIds;
 
   String? _pickAddress = '';
+
+  void storeStatusChange(double value, {bool isUpdate = true}){
+    _storeStatus = value;
+    if(isUpdate) {
+      update();
+    }
+  }
+
   bool _loading = false;
   bool _inZone = false;
   int _zoneID = 0;
@@ -56,7 +64,7 @@ class AuthController extends GetxController implements GetxService {
   // PlatformFile? _pickedDocumentFile;
   // List<MultipartDocument> documents = [];
   List<dynamic>? _additionalList;
-
+  double get storeStatus => _storeStatus;
   bool get isLoading => _isLoading;
   bool get notification => _notification;
   XFile? get pickedFile => _pickedFile;
@@ -78,7 +86,7 @@ class AuthController extends GetxController implements GetxService {
   List<int?>? get cuisineIds => _cuisineIds;
   List<int>? get selectedCuisines => _selectedCuisines;
   String ? get storeAddress => _storeAddress;
-  double get storeStatus => _storeStatus;
+
   String get storeMinTime => _storeMinTime;
   String get storeMaxTime => _storeMaxTime;
   String get storeTimeUnit => _storeTimeUnit;

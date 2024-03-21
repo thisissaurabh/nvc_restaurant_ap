@@ -111,6 +111,7 @@ class SignInScreen extends StatelessWidget {
                         minimumSize: const Size(1, 40),
                       ),
                       onPressed: () async {
+                        Get.toNamed(RouteHelper.getSignUPRoute());
                        /* Get.toNamed(RouteHelper.getRestaurantRegistrationRoute());*/
                       },
                       child: RichText(text: TextSpan(children: [

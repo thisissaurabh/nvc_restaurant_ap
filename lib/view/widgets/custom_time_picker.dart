@@ -5,6 +5,7 @@ import 'package:nvc_restaurant_app/utils/styles.dart';
 
 import '../../controller/auth_controller.dart';
 import '../../utils/dimensions.dart';
+import 'custom_button.dart';
 import 'custom_snackbar.dart';
 import 'min_max_time_picker.dart';
 
@@ -31,24 +32,22 @@ class CustomTimePicker extends StatelessWidget {
               return Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Text('estimated_delivery_time'.tr , style: poppinsMedium.copyWith(fontSize: Dimensions.fontSizeLarge)),
+                  Text('Estimated Delivery Time' , style: poppinsMedium.copyWith(fontSize: Dimensions.fontSizeLarge)),
                   const SizedBox(height: Dimensions.paddingSizeSmall),
-
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: Dimensions.paddingSizeSmall),
-                    child: Text(
-                      'this_item_will_be_shown_in_the_user_app_website'.tr,
-                      style: poppinsRegular.copyWith(fontSize: Dimensions.fontSizeLarge,color: Theme.of(context).disabledColor),
+                  Text('Select Minimum and Maximum Time Duration Expected fro Delivery' ,
                       textAlign: TextAlign.center,
-                    ),
-                  ),
-                  const SizedBox(height: Dimensions.paddingSizeLarge),
+                      style: poppinsRegular.copyWith(fontSize: Dimensions.fontSizeSmall,
+                  color: Theme.of(context).disabledColor)),
+                  const SizedBox(height: Dimensions.paddingSizeDefault),
+
+
+
 
                   Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
                     SizedBox(
                       width: 70,
                       child: Text(
-                        'minimum'.tr,
+                        'Min',
                         style: poppinsRegular.copyWith(fontSize: Dimensions.fontSizeLarge,color: Theme.of(context).disabledColor),
                         textAlign: TextAlign.center,
                       ),
@@ -58,7 +57,7 @@ class CustomTimePicker extends StatelessWidget {
                     SizedBox(
                       width: 70,
                       child: Text(
-                        'maximum'.tr,
+                        'Max',
                         style: poppinsRegular.copyWith(fontSize: Dimensions.fontSizeLarge,color: Theme.of(context).disabledColor),
                         textAlign: TextAlign.center,
                       ),
@@ -66,7 +65,7 @@ class CustomTimePicker extends StatelessWidget {
                     SizedBox(
                       width: 70,
                       child: Text(
-                        'unit'.tr,
+                        'Unit',
                         style: poppinsRegular.copyWith(fontSize: Dimensions.fontSizeLarge,color: Theme.of(context).disabledColor),
                         textAlign: TextAlign.center,
                       ),
@@ -95,27 +94,27 @@ class CustomTimePicker extends StatelessWidget {
 
                   ]),
 
-                  // Padding(
-                  //   padding: const EdgeInsets.symmetric(vertical: Dimensions.paddingSizeLarge),
-                  //   child: Text(
-                  //     '${authController.storeMinTime} - ${authController.storeMaxTime} ${authController.storeTimeUnit}',
-                  //     style: poppinsBold.copyWith(fontSize: Dimensions.fontSizeExtraLarge),
-                  //   ),
-                  // ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: Dimensions.paddingSizeLarge),
+                    child: Text(
+                      '${authController.storeMinTime} - ${authController.storeMaxTime} ${authController.storeTimeUnit}',
+                      style: poppinsBold.copyWith(fontSize: Dimensions.fontSizeExtraLarge),
+                    ),
+                  ),
 
-                  // CustomButton(
-                  //   width: 200,
-                  //   buttonText: 'save'.tr,
-                  //   onPressed: (){
-                  //     int min = int.parse(authController.storeMinTime);
-                  //     int max = int.parse(authController.storeMaxTime);
-                  //     if(min < max){
-                  //       Get.back();
-                  //     }else{
-                  //       showCustomSnackBar('maximum_delivery_time_can_not_be_smaller_then_minimum_delivery_time'.tr);
-                  //     }
-                  //   },
-                  // ),
+                  CustomButton(
+                    width: 200,
+                    buttonText: 'save'.tr,
+                    onPressed: (){
+                      int min = int.parse(authController.storeMinTime);
+                      int max = int.parse(authController.storeMaxTime);
+                      if(min < max){
+                        Get.back();
+                      }else{
+                        showCustomSnackBar('maximum_delivery_time_can_not_be_smaller_then_minimum_delivery_time'.tr);
+                      }
+                    },
+                  ),
 
                 ],
               );
