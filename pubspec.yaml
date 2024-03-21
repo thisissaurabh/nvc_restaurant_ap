@@ -1,0 +1,90 @@
+name: nvc_restaurant_app
+description: "A new Flutter project."
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+
+
+dependencies:
+  flutter:
+    sdk: flutter
+  get: ^4.6.6
+  carousel_slider: ^4.2.1
+  cached_network_image: ^3.3.1
+  colorful_safe_area: ^1.0.0
+  flutter_rating_bar: ^4.0.1
+  animated_flip_counter: ^0.2.6
+  percent_indicator: 3.0.1
+  image_picker: ^1.0.7
+  dotted_border: ^2.0.0+2
+  shared_preferences: ^2.2.2
+  intl: ^0.19.0
+
+
+
+  cupertino_icons: ^1.0.6
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+
+
+  flutter_lints: ^3.0.0
+
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/icons/
+#    - assets/notification.mp3/
+
+  fonts:
+    - family: Poppins
+      fonts:
+        - asset: assets/font/Poppins-Black.ttf
+          weight: 900
+        - asset: assets/font/Poppins-BlackItalic.ttf
+          weight: 900
+        - asset: assets/font/Poppins-Bold.ttf
+          weight: 700
+        - asset: assets/font/Poppins-BoldItalic.ttf
+          weight: 700
+        - asset: assets/font/Poppins-ExtraBold.ttf
+          weight: 800
+        - asset: assets/font/Poppins-ExtraBoldItalic.ttf
+          weight: 800
+        - asset: assets/font/Poppins-ExtraLight.ttf
+          weight: 200
+        - asset: assets/font/Poppins-ExtraLightItalic.ttf
+          weight: 200
+        - asset: assets/font/Poppins-Italic.ttf
+          weight: 400
+        - asset: assets/font/Poppins-Light.ttf
+          weight: 300
+        - asset: assets/font/Poppins-LightItalic.ttf
+          weight: 300
+        - asset: assets/font/Poppins-Medium.ttf
+          weight: 500
+        - asset: assets/font/Poppins-MediumItalic.ttf
+          weight: 500
+        - asset: assets/font/Poppins-Regular.ttf
+          weight: 400
+        - asset: assets/font/Poppins-SemiBold.ttf
+          weight: 600
+        - asset: assets/font/Poppins-SemiBoldItalic.ttf
+          weight: 600
+        - asset: assets/font/Poppins-Thin.ttf
+          weight: 100
+        - asset: assets/font/Poppins-ThinItalic.ttf
+          weight: 100
+
+
+
+
